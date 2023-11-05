@@ -9,7 +9,7 @@
  *Return: 1 if palindrome, 0 if not                             
  */                                                             
                                                                  
-int is_palindrome(listint_t **head)                             
+int is_palindrome(listint_t **head)
 {                                                               
         listint_t *hold = *head;                                
         int i = 0, j, l = 0;                                    

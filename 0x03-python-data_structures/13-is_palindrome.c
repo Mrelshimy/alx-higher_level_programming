@@ -14,11 +14,11 @@ int is_palindrome(listint_t **head)
 	return (palind_ext(head, *head));
 }
 
-int palind_ext(listint_t **head, listint_t *end)
+int palind_ext(listint_t **head, listint_t *tail)
 {
-	if (end == NULL)
+	if (tail == NULL)
 		return (1);
-	if(palind_ext(head, end->next) && (*head)->n == end->n)
+	if(palind_ext(head, tail->next) && (*head)->n == tail->n)
 	{
 		*head = (*head)->next;
 		return (1);

@@ -44,6 +44,9 @@ int is_palindrome(listint_t **head)
 	if (head == NULL || *head == NULL)
 		return (1);
 
+	if (reverse_head == NULL || original_head == NULL)
+		return (0);
+
 	while (original_head != NULL && reverse_head != NULL)
 	{
 		if (original_head->n == reverse_head->n)

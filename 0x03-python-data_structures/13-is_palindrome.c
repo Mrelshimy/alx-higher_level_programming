@@ -1,27 +1,48 @@
-#include "lists.h"                                              
-                                                                 
-/**                                                             
- *is_palindrome - Function to check if linked list is palindrome
- *@head: pointer to pointer to the list                         
- *                                                              
- *Return: 1 if palindrome, 0 if not                             
- */                                                             
-                                                                 
-int is_palindrome(listint_t **head)
+#include "lists.h"
+
+/**
+ *reverse_listint - function to reverse a linked list
+ *@head: list
+ *
+ *Discription: Function to reverse a linked list
+ *
+ *Return: pointer to reversed list
+ */
+
+listint_t *reverse_listint(listint_t **head)
 {
-	if(head == NULL || *head == NULL)
-		return (1);
-	return (palind_ext(head, *head));
+	listint_t *prevn, *currn;
+
+	prevn = currn = NULL;
+
+	while (*head != 0)
+	{
+		currn = (*head)->next;
+		(*head)->next = prevn;
+		prevn = *head;
+		*head = currn;
+	}
+	(*head) = prevn;
+	return (*head);
 }
 
-int palind_ext(listint_t **head, listint_t *tail)
+int is_palindrome(listint_t **head)
 {
-	if (tail == NULL)
+	listint_t *original_head = (*head);
+	listint_t *reverse_head = reverse_listint(head);
+
+	if (!head || (*head)->next == NULL)
 		return (1);
-	if(palind_ext(head, tail->next) && (*head)->n == tail->n)
+
+	while (original_head != NULL && reverse_head != NULL)
 	{
-		*head = (*head)->next;
-		return (1);
+		if (original_head->n == reverse_head->n)
+		{
+			original_head = original_head->next;
+			reverse_head = reverse_head->next;
+		}
+		else
+			return (0);
 	}
-	return (0);
+	return (1);
 }

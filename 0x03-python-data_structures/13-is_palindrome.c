@@ -11,20 +11,30 @@
 
 listint_t *reverse_listint(listint_t **head)
 {
-	listint_t *prevn, *currn;
+	listint_t *prevn, *currn, *nextn;
 
-	prevn = currn = NULL;
+    	prevn = NULL;
+    	currn = *head;
 
-	while (*head != 0)
-	{
-		currn = (*head)->next;
-		(*head)->next = prevn;
-		prevn = *head;
-		*head = currn;
-	}
-	(*head) = prevn;
-	return (*head);
+    	while (currn != NULL)
+    	{
+        	nextn = currn->next;
+        	currn->next = prevn;
+        	prevn = currn;
+        	currn = nextn;
+    	}
+
+    	*head = prevn;
+    	return *head;
 }
+
+
+/**
+ *is_palindrome - Function to check if linked list is palindrome
+ *@head: pointer to pointer to the list
+ *
+ *Return: 1 if palindrome, 0 if not
+ */
 
 int is_palindrome(listint_t **head)
 {

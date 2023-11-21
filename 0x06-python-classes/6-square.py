@@ -23,7 +23,7 @@ class Square:
         """Public method for printing the square with #"""
 
         for m in range(self.__position[1]):
-            print()
+            print("")
         if self.__size == 0:
             print()
         else:

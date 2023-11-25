@@ -1,0 +1,121 @@
+Trying:
+    text_indentation = __import__('5-text_indentation').text_indentation
+Expecting nothing
+ok
+Trying:
+    text_indentation("Hi, I'm Mohamed: How are you? Hoping you are well.")
+Expecting:
+    Hi, I'm Mohamed
+    <BLANKLINE>
+    How are you?
+    <BLANKLINE>
+    Hoping you are well.
+    <BLANKLINE>
+**********************************************************************
+File "./tests/5-text_indentation.txt", line 11, in 5-text_indentation.txt
+Failed example:
+    text_indentation("Hi, I'm Mohamed: How are you? Hoping you are well.")
+Expected:
+    Hi, I'm Mohamed
+    <BLANKLINE>
+    How are you?
+    <BLANKLINE>
+    Hoping you are well.
+    <BLANKLINE>
+Got:
+    Hi, I'm Mohamed:
+    <BLANKLINE>
+    How are you?
+    <BLANKLINE>
+    Hoping you are well.
+    <BLANKLINE>
+Trying:
+    text_indentation("Hello Mohamed")
+Expecting:
+    Hello Mohamed
+ok
+Trying:
+    text_indentation("")
+Expecting nothing
+ok
+Trying:
+    text_indentation("     ")
+Expecting nothing
+ok
+Trying:
+    text_indentation("   Mohamed   ")
+Expecting:
+    Mohamed
+ok
+Trying:
+    text_indentation(300)
+Expecting:
+    Traceback (most recent call last):
+    ...
+    TypeError: text must be a string
+ok
+Trying:
+    text_indentation()
+Expecting:
+    Traceback (most recent call last):
+    ...
+    TypeError: text_indentation() missing 1 required positional argument: 'text'
+ok
+Trying:
+    text_indentation("?\n\n.\n\n:")
+Expecting:
+    ?
+    <BLANKLINE>
+    <BLANKLINE>
+    <BLANKLINE>
+    .
+    <BLANKLINE>
+    <BLANKLINE>
+    <BLANKLINE>
+    :
+    <BLANKLINE>
+ok
+Trying:
+    text_indentation(".?:")
+Expecting:
+    .
+    <BLANKLINE>
+    ?
+    <BLANKLINE>
+    :
+    <BLANKLINE>
+ok
+Trying:
+    text_indentation("Hello   :     Holberton    ?    school.    fooo     ")
+Expecting:
+    Hello:
+    <BLANKLINE>
+    Holberton?
+    <BLANKLINE>
+    school.
+    <BLANKLINE>
+    fooo
+ok
+Trying:
+    text_indentation("\n")
+Expecting:
+    <BLANKLINE>
+ok
+Trying:
+    text_indentation("\n\n")
+Expecting:
+    <BLANKLINE>
+    <BLANKLINE>
+ok
+Trying:
+    text_indentation("Hello\n\n")
+Expecting:
+    Hello
+    <BLANKLINE>
+ok
+**********************************************************************
+1 items had failures:
+   1 of  14 in 5-text_indentation.txt
+14 tests in 1 items.
+13 passed and 1 failed.
+***Test Failed*** 1 failures.

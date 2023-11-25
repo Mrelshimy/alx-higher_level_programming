@@ -1,0 +1,56 @@
+The ``matrix divided`` module
+======================
+
+Using ``matrix_divided``
+-------------------
+
+Importing function:
+    >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+Testing normal values:
+    >>> matrix_divided([[3,6,9],[3,6,9],[3,6,9]], 3)
+    [[1.0, 2.0, 3.0], [1.0, 2.0, 3.0], [1.0, 2.0, 3.0]]
+
+Testing 0 length matrix:
+    >>> matrix_divided([], 3)
+    Traceback (most recent call last):
+    ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Testing divison by 0:
+    >>> matrix_divided([1, 2, 3], 0)
+    Traceback (most recent call last):
+    ...
+    ZeroDivisionError: division by zero
+
+Testing 1 element matrix, negative dividant:
+    >>> matrix_divided([[6]], -2)
+    [[-3.0]]
+
+Testing negative float numbers:
+    >>> matrix_divided([[3.3, -6, 9.3], [3.1, -3.1, 0]], -3.1)
+    [[-1.06, 1.94, -3.0], [-1.0, 1.0, -0.0]]
+
+Testing string element in matrix:
+    >>> matrix_divided([[3, 3, "hi"], [3, 6, 9]], 3)
+    Traceback (most recent call last):
+    ...
+    TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+Testing String dividant:
+    >>> matrix_divided([[1, 2, 3], [4, 5, 6]], "hi")
+    Traceback (most recent call last):
+    ...
+    TypeError: div must be a number
+
+Testint missing arg:
+    >>> matrix_divided()
+    Traceback (most recent call last):
+    ...
+    TypeError: matrix_divided() missing 2 required positional arguments: 'matrix' and 'div'
+
+Testing Matrix with diff row length:
+    >>> matrix_divided([[1, 2, 3], [1, 2]], 1)
+    Traceback (most recent call last):
+    ...
+    TypeError: Each row of the matrix must have the same size

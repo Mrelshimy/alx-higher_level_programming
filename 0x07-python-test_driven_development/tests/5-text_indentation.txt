@@ -1,0 +1,90 @@
+The ``text indentation`` module
+======================
+
+Using ``text indentation``
+-------------------
+
+Importing function:
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+
+Testing normal values:
+    >>> text_indentation("Hi, I'm Mohamed: How are you? Hoping you are well.")
+    Hi, I'm Mohamed:
+    <BLANKLINE>
+    How are you?
+    <BLANKLINE>
+    Hoping you are well.
+    <BLANKLINE>
+
+Testing no delimeter:
+    >>> text_indentation("Hello Mohamed")
+    Hello Mohamed
+
+Testing empty string:
+    >>> text_indentation("")
+
+Testing just spaces:
+    >>> text_indentation("     ")
+
+Testing spaces before and after text:
+    >>> text_indentation("   Mohamed   ")
+    Mohamed
+
+Testing wrong type input:
+    >>> text_indentation(300)
+    Traceback (most recent call last):
+    ...
+    TypeError: text must be a string
+
+Testint missing arg:
+    >>> text_indentation()
+    Traceback (most recent call last):
+    ...
+    TypeError: text_indentation() missing 1 required positional argument: 'text'
+
+Test existing newlines:
+    >>> text_indentation("?\n\n.\n\n:")
+    ?
+    <BLANKLINE>
+    <BLANKLINE>
+    <BLANKLINE>
+    .
+    <BLANKLINE>
+    <BLANKLINE>
+    <BLANKLINE>
+    :
+    <BLANKLINE>
+
+Test just delimeters:
+    >>> text_indentation(".?:")
+    .
+    <BLANKLINE>
+    ?
+    <BLANKLINE>
+    :
+    <BLANKLINE>
+
+Test all delimeters with spaces at end:
+    >>> text_indentation("Hello   :     Holberton    ?    school.    fooo     ")
+    Hello:
+    <BLANKLINE>
+    Holberton?
+    <BLANKLINE>
+    school.
+    <BLANKLINE>
+    fooo
+
+Test newline:
+    >>> text_indentation("\n")
+    <BLANKLINE>
+
+Test newline 2:
+    >>> text_indentation("\n\n")
+    <BLANKLINE>
+    <BLANKLINE>
+
+Test newline 3:
+    >>> text_indentation("Hello\n\n")
+    Hello
+    <BLANKLINE>
+

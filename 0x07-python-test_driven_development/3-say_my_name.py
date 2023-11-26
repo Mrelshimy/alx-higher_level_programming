@@ -10,8 +10,7 @@ def say_my_name(first_name, last_name=""):
             last_name: last name
 
         Raises:
-            TypeError: Raise if matrix elements or div are not int or float
-            TypeError: Each row of the matrix must have the same size
+            TypeError: first_nme or last_name are is not string
 
         Returns:
             My Name is first_name last_name

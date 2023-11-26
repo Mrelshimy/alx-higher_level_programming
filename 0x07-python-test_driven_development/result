@@ -1,121 +1,170 @@
 Trying:
-    text_indentation = __import__('5-text_indentation').text_indentation
+    lazy_matrix_mul = __import__('101-lazy_matrix_mul').lazy_matrix_mul
 Expecting nothing
 ok
 Trying:
-    text_indentation("Hi, I'm Mohamed: How are you? Hoping you are well.")
+    print(lazy_matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]]))
 Expecting:
-    Hi, I'm Mohamed
-    <BLANKLINE>
-    How are you?
-    <BLANKLINE>
-    Hoping you are well.
-    <BLANKLINE>
-**********************************************************************
-File "./tests/5-text_indentation.txt", line 11, in 5-text_indentation.txt
-Failed example:
-    text_indentation("Hi, I'm Mohamed: How are you? Hoping you are well.")
-Expected:
-    Hi, I'm Mohamed
-    <BLANKLINE>
-    How are you?
-    <BLANKLINE>
-    Hoping you are well.
-    <BLANKLINE>
-Got:
-    Hi, I'm Mohamed:
-    <BLANKLINE>
-    How are you?
-    <BLANKLINE>
-    Hoping you are well.
-    <BLANKLINE>
+    [[ 7 10]
+     [15 22]]
+ok
 Trying:
-    text_indentation("Hello Mohamed")
+    print(lazy_matrix_mul([[1, 2]], [[3, 4], [5, 6]]))
 Expecting:
-    Hello Mohamed
+    [[13 16]]
 ok
 Trying:
-    text_indentation("")
-Expecting nothing
-ok
-Trying:
-    text_indentation("     ")
-Expecting nothing
-ok
-Trying:
-    text_indentation("   Mohamed   ")
+    print(lazy_matrix_mul([[1, 2.3], [3.4, 4.2]], [[1.3, 2.3], [3.3, 4.1]]))
 Expecting:
-    Mohamed
+    [[ 8.89 11.73]
+     [18.28 25.04]]
 ok
 Trying:
-    text_indentation(300)
+    print(lazy_matrix_mul([[1.0, 2.0], [3.0, 4.0]], [[1.0, 2], [3, 4]]))
 Expecting:
-    Traceback (most recent call last):
-    ...
-    TypeError: text must be a string
+    [[ 7. 10.]
+     [15. 22.]]
 ok
 Trying:
-    text_indentation()
+    try:
+        print(lazy_matrix_mul([[1, 2, 3]], [1, 2, 3]))
+    except Exception as err:
+        print(err)
 Expecting:
-    Traceback (most recent call last):
-    ...
-    TypeError: text_indentation() missing 1 required positional argument: 'text'
+    [14]
 ok
 Trying:
-    text_indentation("?\n\n.\n\n:")
+    try:
+        print(lazy_matrix_mul([[1, "HELLO"]], [[3, 4], [5, 6]]))
+    except Exception as err:
+        print(err)
 Expecting:
-    ?
-    <BLANKLINE>
-    <BLANKLINE>
-    <BLANKLINE>
-    .
-    <BLANKLINE>
-    <BLANKLINE>
-    <BLANKLINE>
-    :
-    <BLANKLINE>
+    invalid data type for einsum
 ok
 Trying:
-    text_indentation(".?:")
+    try:
+        print(lazy_matrix_mul([[1, 2], [3, 4]], [[1, 2], ["3", 4]]))
+    except Exception as err:
+        print(err)
 Expecting:
-    .
-    <BLANKLINE>
-    ?
-    <BLANKLINE>
-    :
-    <BLANKLINE>
+    invalid data type for einsum
 ok
 Trying:
-    text_indentation("Hello   :     Holberton    ?    school.    fooo     ")
+    try:
+        print(lazy_matrix_mul([[1], [2]], [[3, 4], [5, 6]]))
+    except Exception as err:
+        print(err)
 Expecting:
-    Hello:
-    <BLANKLINE>
-    Holberton?
-    <BLANKLINE>
-    school.
-    <BLANKLINE>
-    fooo
+    shapes (2,1) and (2,2) not aligned: 1 (dim 1) != 2 (dim 0)
 ok
 Trying:
-    text_indentation("\n")
+    try:
+        print(lazy_matrix_mul([[1], [3, 2]], [[3, 4], [5, 6]]))
+    except Exception as err:
+        print(err)
 Expecting:
-    <BLANKLINE>
+    setting an array element with a sequence.
 ok
 Trying:
-    text_indentation("\n\n")
+    try:
+        print(lazy_matrix_mul([[1], [2]], [[2, 3, 4], [5, 6]]))
+    except Exception as err:
+        print(err)
 Expecting:
-    <BLANKLINE>
-    <BLANKLINE>
+    setting an array element with a sequence.
 ok
 Trying:
-    text_indentation("Hello\n\n")
+    try:
+        print(lazy_matrix_mul(None, None))
+    except Exception as err:
+        print(err)
 Expecting:
-    Hello
-    <BLANKLINE>
+    Object arrays are not currently supported
 ok
-**********************************************************************
-1 items had failures:
-   1 of  14 in 5-text_indentation.txt
-14 tests in 1 items.
-13 passed and 1 failed.
-***Test Failed*** 1 failures.
+Trying:
+    try:
+        print(lazy_matrix_mul([1, 2], None))
+    except Exception as err:
+        print(err)
+Expecting:
+    Object arrays are not currently supported
+ok
+Trying:
+    try:
+        print(lazy_matrix_mul([], []))
+    except Exception as err:
+        print(err)
+Expecting:
+    0.0
+ok
+Trying:
+    try:
+        print(lazy_matrix_mul([None], []))
+    except Exception as err:
+        print(err)
+Expecting:
+    Object arrays are not currently supported
+ok
+Trying:
+    try:
+        print(lazy_matrix_mul([1, 2, 3], []))
+    except Exception as err:
+        print(err)
+Expecting:
+    shapes (3,) and (0,) not aligned: 3 (dim 0) != 0 (dim 0)
+ok
+Trying:
+    try:
+        print(lazy_matrix_mul([1, 2, 3], [None]))
+    except Exception as err:
+        print(err)
+Expecting:
+    Object arrays are not currently supported
+ok
+Trying:
+    try:
+        print(lazy_matrix_mul([[1, 2, 3]], [None]))
+    except Exception as err:
+        print(err)
+Expecting:
+    Object arrays are not currently supported
+ok
+Trying:
+    try:
+        print(lazy_matrix_mul([[5, 6], [7, 8]], [[]]))
+    except Exception as err:
+        print(err)
+Expecting:
+    shapes (2,2) and (1,0) not aligned: 2 (dim 1) != 1 (dim 0)
+ok
+Trying:
+    try:
+        print(lazy_matrix_mul([[1, 2], [3, 4], [3, 4]], [[5, 6, 1], [7, 8, 2]]))
+    except Exception as err:
+        print(err)
+Expecting:
+    [[19 22  5]
+     [43 50 11]
+     [43 50 11]]
+ok
+Trying:
+    try:
+        print(lazy_matrix_mul([[1, 2, 3]], ))
+    except Exception as err:
+        print(err)
+Expecting:
+    lazy_matrix_mul() missing 1 required positional argument: 'm_b'
+ok
+Trying:
+    try:
+        print(lazy_matrix_mul())
+    except Exception as err:
+        print(err)
+Expecting:
+    lazy_matrix_mul() missing 2 required positional arguments: 'm_a' and 'm_b'
+ok
+1 items passed all tests:
+  22 tests in 101-lazy_matrix_mul.txt
+22 tests in 1 items.
+22 passed and 0 failed.
+Test passed.

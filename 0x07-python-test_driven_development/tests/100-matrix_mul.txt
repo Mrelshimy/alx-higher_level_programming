@@ -1,0 +1,82 @@
+Test cases for matrix_mul function
+==================================
+Import module:
+    >>> matrix_mul = __import__('100-matrix_mul').matrix_mul
+
+# Test Case 1: Basic multiplication
+	>>> matrix_mul([[1, 2, 3], [4, 5, 6]], [[7, 8], [9, 10], [11, 12]])
+	[[58, 64], [139, 154]]
+
+# Test Case 2: Matrices with decimal values
+	>>> matrix_mul([[0.5, 1.5], [2.5, 3.5]], [[4, 5], [6, 7]])
+	[[9.0, 11.0], [26.0, 32.0]]
+
+# Test Case 3: Empty matrices (m_a)
+	>>> matrix_mul([], [[1, 2], [3, 4]])
+	Traceback (most recent call last):
+	...
+        ValueError: m_a can't be empty
+
+# Test Case 4: Empty matrices (m_b)
+        >>> matrix_mul([[1, 2], [3, 4]], [])
+	Traceback (most recent call last):
+        ...
+        ValueError: m_b can't be empty
+
+# Test Case 5: Matrices with a non-numeric element (m_a)
+        >>> matrix_mul([[1, 2], [3, 'a']], [[4, 5], [6, 7]])
+        Traceback (most recent call last):
+        ...
+ 	TypeError: m_a should contain only integers or floats
+
+# Test Case 6: Matrices with a non-numeric element (m_b)
+        >>> matrix_mul([[1, 2], [3, 4]], [[5, 6], [7, 'b']])
+	Traceback (most recent call last):
+	...
+	TypeError: m_b should contain only integers or floats
+
+# Test Case 7: Matrices with different row sizes (m_a)
+	>>> matrix_mul([[1, 2], [3, 4]], [[5, 6], [7, 8]])
+	Traceback (most recent call last):
+	...
+	TypeError: each row of m_a must be of the same size
+
+# Test Case 8: Matrices with different row sizes (m_b)
+        >>> matrix_mul([[1, 2], [3, 4]], [[5, 6], [7]])
+	Traceback (most recent call last):
+	...
+	TypeError: each row of m_b must be of the same size
+
+# Test Case 9: Matrices that cannot be multiplied
+	>>> matrix_mul([[1, 2], [3, 4]], [[5, 6], [7, 8], [9, 10]])
+	Traceback (most recent call last):
+	...
+	ValueError: m_a and m_b can't be multiplied
+
+# Test Case 10: Resulting matrix with zeros
+	>>> matrix_mul([[0, 0], [0, 0]], [[1, 2], [3, 4]])
+	[[0, 0], [0, 0]]
+
+# Test Case 11: Identity matrix multiplication
+	>>> matrix_mul([[1, 0], [0, 1]], [[2, 3], [4, 5]])
+	[[2, 3], [4, 5]]
+
+
+# Test Case 13: Empty matrices (both m_a and m_b)
+	>>> matrix_mul([], [])
+	Traceback (most recent call last):
+	...
+	ValueError: m_a can't be empty
+
+# Test Case 14: Empty list (m_a)
+	>>> matrix_mul([[]], [[1, 2], [3, 4]])
+	Traceback (most recent call last):
+	...
+	ValueError: m_a can't be empty
+
+# Test Case 15: Empty list (m_b)
+        >>> matrix_mul([[1, 2], [3, 4]], [[]])
+	Traceback (most recent call last):
+	...
+	ValueError: m_b can't be empty
+

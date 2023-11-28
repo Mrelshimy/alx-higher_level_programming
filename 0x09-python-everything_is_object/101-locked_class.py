@@ -2,7 +2,7 @@
 """Locked Class Module"""
 
 
-class LockedClass():
+class LockedClass:
     """Class with locked attribute"""
 
     __slots__ = ("first_name")

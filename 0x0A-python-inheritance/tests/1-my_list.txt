@@ -1,0 +1,7 @@
+Impoirting module:
+	>>> MyList = __import__('1-my_list').MyList
+
+Test normal values:
+	>>> my_list = MyList([4, 3, 2, 1])
+	>>> my_list.print_sorted()
+	[1, 2, 3, 4]

@@ -5,3 +5,19 @@ Test normal values:
 	>>> my_list = MyList([4, 3, 2, 1])
 	>>> my_list.print_sorted()
 	[1, 2, 3, 4]
+
+Test Wrong type:
+	>>> my_list = MyList(1)
+	Traceback (most recent call last):
+	...
+	TypeError: 'int' object is not iterable
+
+Test empty list:
+	>>> my_list = MyList([])
+	>>> my_list.print_sorted()
+	[]
+
+Test no argument:
+	>>> my_list = MyList()
+	>>> my_list.print_sorted()
+	[]

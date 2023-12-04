@@ -21,3 +21,13 @@ Test no argument:
 	>>> my_list = MyList()
 	>>> my_list.print_sorted()
 	[]
+
+Test Negative numbers:
+	>>> my_list = MyList([-1, -2, -3, -9, -5])
+	>>> my_list.print_sorted()
+	[-9, -5, -3, -2, -1]
+
+Test strings:
+	>>> my_list = MyList(["banana", "apple", "orange"])
+	>>> my_list.print_sorted()
+	['apple', 'banana', 'orange']

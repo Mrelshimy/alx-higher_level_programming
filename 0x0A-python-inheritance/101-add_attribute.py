@@ -7,4 +7,4 @@ def add_attribute(obj, attr, value):
 
     if not hasattr(obj, "__dict__"):
         raise TyprError("can't add new attribute")
-    return setattr(obj, attr, value)
+    setattr(obj, attr, value)

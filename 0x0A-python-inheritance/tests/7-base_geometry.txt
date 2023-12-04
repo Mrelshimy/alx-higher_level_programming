@@ -1,0 +1,10 @@
+Test BaseGeometry Module
+
+Import Module:
+	>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+Test area error:
+	>>> bg = BaseGeometry("Hi")
+	>>> bg.area()
+
+

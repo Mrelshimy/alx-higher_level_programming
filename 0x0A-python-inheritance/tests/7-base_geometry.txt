@@ -10,6 +10,20 @@ Test area error:
 	...
 	Exception: area() is not implemented
 
+Test arg for BaseGeometry:
+	>>> bg = BaseGeometry(5)
+	Traceback (most recent call last):
+	...
+	TypeError: BaseGeometry() takes no arguments
+
+Test area() with arg:
+	>>> bg = BaseGeometry()
+	>>> bg.area(5)
+	Traceback (most recent call last):
+	...
+	TypeError: area() takes 1 positional argument but 2 were given
+
+
 Test integer validator TypeError:
 	>>> bg = BaseGeometry()
 	>>> bg.integer_validator("name", "hi")

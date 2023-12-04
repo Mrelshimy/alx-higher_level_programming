@@ -4,7 +4,27 @@ Import Module:
 	>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
 Test area error:
-	>>> bg = BaseGeometry("Hi")
+	>>> bg = BaseGeometry()
 	>>> bg.area()
+	Traceback (most recent call last):
+	...
+	Exception: area() is not implemented
 
+Test integer validator TypeError:
+	>>> bg = BaseGeometry()
+	>>> bg.integer_validator("name", "hi")
+	Traceback (most recent call last):
+        ...
+        TypeError: name must be an integer
+
+Test integer validator ValueError:
+        >>> bg = BaseGeometry()
+        >>> bg.integer_validator("name", -3)
+        Traceback (most recent call last):
+        ...
+        ValueError: name must be greater than 0
+
+Test integer validator normal value:
+        >>> bg = BaseGeometry()
+        >>> bg.integer_validator("name", 1)
 

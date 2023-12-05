@@ -29,4 +29,4 @@ class Student:
         """method to replce all attributes to json"""
         for key, value in json.items():
             if key in self.__dict__:
-                self.__dict[key] = value
+                self.__dict__[key] = value

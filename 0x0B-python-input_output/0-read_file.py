@@ -8,4 +8,4 @@ def read_file(filename=""):
     import sys
     with open(filename, "r") as fp:
         for line in fp:
-            print(line, file = sys.stdout)
+            print(line, file=sys.stdout)

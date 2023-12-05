@@ -15,10 +15,10 @@ class Student:
         """return json representation for student data fir keys in attrs"""
         try:
             for attr in attrs:
-                if type(attr) not str:
+                if type(attr) is not str:
                     return self.__dict__
         except Exception:
-            return self.__dict
+            return self.__dict__
         new_dict = dict()
         for key, value in self.__dict__.items():
             if key in attrs:

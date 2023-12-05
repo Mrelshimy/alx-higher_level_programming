@@ -7,6 +7,10 @@ load_from_json_file = __import__('6-load_from_json_file').load_from_json_file
 
 a = list(sys.argv[1:])
 
-old = load_from_json_file('add_item.json')
+try:
+    old = load_from_json_file('add_item.json')
+except Exception:
+    old = []
+
 old.extend(a)
 save_to_json_file(old, 'add_item.json')

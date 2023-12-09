@@ -2,6 +2,7 @@
 """Base Class Module"""
 import json
 import csv
+import os
 
 class Base:
     """Base Class"""
@@ -77,4 +78,38 @@ class Base:
         for obj_dict in dlist:
             obj = cls.create(**obj_dict)
             inst_list.append(obj)
+        return inst_list
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        from models.rectangle import Rectangle
+        from models.square import Square
+        
+        new_list = [cls.to_dictionary(obj) for obj in list_objs]
+        if cls == Rectangle:
+            fieldnames = ['id', 'width', 'height', 'x', 'y']
+        if cls == Square:
+            fieldnames = ['id', 'size', 'x', 'y']
+        with open("{}.csv".format(cls.__name__), 'w', encoding='utf-8') as fp:
+            csv_writer = csv.DictWriter(fp, fieldnames = fieldnames)
+            csv_writer.writeheader()
+            for obj_dict in new_list:
+                csv_writer.writerow(obj_dict)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        from models.rectangle import Rectangle
+        from models.square import Square
+
+        with open("{}.csv".format(cls.__name__), encoding='utf-8') as fp:
+            csv_reader = csv.DictReader(fp)
+            if csv_reader is None or fp is None:
+                return []
+            else:
+                inst_list = []
+                for line in csv_reader:
+                    for key, value in line.items():
+                        line[key] = int(value)
+                    obj = cls.create(**line)
+                    inst_list.append(obj)
         return inst_list

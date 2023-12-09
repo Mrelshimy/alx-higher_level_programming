@@ -82,6 +82,7 @@ class Base:
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
+        """Save objects representation to csv file"""
         from models.rectangle import Rectangle
         from models.square import Square
         
@@ -98,6 +99,7 @@ class Base:
 
     @classmethod
     def load_from_file_csv(cls):
+        """Create objects based on csv file"""
         from models.rectangle import Rectangle
         from models.square import Square
 

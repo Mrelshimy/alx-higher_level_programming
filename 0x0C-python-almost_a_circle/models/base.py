@@ -126,7 +126,7 @@ class Base:
             runner.pensize(3)
             runner.color("red")
             runner.penup()
-            runner.goto(obj.x + runner.pos()[0], obj.y + runner.pos()[1])
+            runner.goto(obj.x, obj.y)
             runner.pendown()
             runner.forward(obj.width)
             runner.left(90)

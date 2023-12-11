@@ -117,3 +117,21 @@ class Base:
                     obj = cls.create(**line)
                     inst_list.append(obj)
         return inst_list
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        import turtle
+        runner = turtle.Turtle()
+        for obj in list_rectangles + list_squares:
+            runner.pensize(3)
+            runner.color("red")
+            runner.penup()
+            runner.goto(obj.x + runner.pos()[0], obj.y + runner.pos()[1])
+            runner.pendown()
+            runner.forward(obj.width)
+            runner.left(90)
+            runner.forward(obj.height)
+            runner.left(90)
+            runner.forward(obj.width)
+            runner.left(90)
+            runner.forward(obj.height)

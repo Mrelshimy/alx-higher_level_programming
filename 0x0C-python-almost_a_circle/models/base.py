@@ -4,6 +4,7 @@ import json
 import csv
 import os
 
+
 class Base:
     """Base Class"""
 
@@ -11,7 +12,7 @@ class Base:
 
     def __init__(self, id=None):
         """Constructor
-        
+
         Args:
             id: instance id
         """
@@ -32,7 +33,7 @@ class Base:
     @classmethod
     def save_to_file(cls, list_objs):
         """Save list of object using json rep to a file"""
-        new_list =[]
+        new_list = []
         if list_objs is not None:
             for obj in list_objs:
                 obj = obj.to_dictionary()
@@ -54,14 +55,14 @@ class Base:
         """create a new instance with all attributes set"""
         from models.rectangle import Rectangle
         from models.square import Square
-        
+
         if cls == Rectangle:
             obj = Rectangle(1, 1)
         elif cls == Square:
             obj = Square(1)
         else:
             obj = None
-        if obj is not None: 
+        if obj is not None:
             obj.update(**dictionary)
         return obj
 
@@ -85,14 +86,14 @@ class Base:
         """Save objects representation to csv file"""
         from models.rectangle import Rectangle
         from models.square import Square
-        
+
         new_list = [cls.to_dictionary(obj) for obj in list_objs]
         if cls == Rectangle:
             fieldnames = ['id', 'width', 'height', 'x', 'y']
         if cls == Square:
             fieldnames = ['id', 'size', 'x', 'y']
         with open("{}.csv".format(cls.__name__), 'w', encoding='utf-8') as fp:
-            csv_writer = csv.DictWriter(fp, fieldnames = fieldnames)
+            csv_writer = csv.DictWriter(fp, fieldnames=fieldnames)
             csv_writer.writeheader()
             for obj_dict in new_list:
                 csv_writer.writerow(obj_dict)

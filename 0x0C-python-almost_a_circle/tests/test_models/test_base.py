@@ -56,9 +56,7 @@ class TestBaseClass(unittest.TestCase):
         self.assertEqual(Base.to_json_string(list1), "[]")
         self.assertEqual(Base.to_json_string(list2), "[]")
         self.assertEqual(Base.to_json_string(list3),
-                         '[{"x": 2, "width": 10, "id": 1,\
-                         "height": 7, "y": 8},\
-                        {"x": 2, "width": 10, "id": 1, "y": 8}]')
+                         '[{"x": 2, "width": 10, "id": 1, "height": 7, "y": 8}, {"x": 2, "width": 10, "id": 1, "y": 8}]')
         self.assertEqual(Base.to_json_string(list4), '"hi"')
         self.assertEqual(Base.to_json_string(list5), '[{}]')
         self.assertEqual(Base.to_json_string(list6), '[{}, {}]')
@@ -99,8 +97,7 @@ class TestBaseClass(unittest.TestCase):
         Base.save_to_file(obj_list)
         with open("Base.json", encoding='utf-8') as fp:
             data = fp.read()
-        expected_op = '[{"x": 1, "y": 1, "id": 1, "height": 1, "width": 1},\
-                        {"id": 2, "x": 1, "size": 1, "y": 1}]'
+        expected_op = '[{"x": 1, "y": 1, "id": 1, "height": 1, "width": 1}, {"id": 2, "x": 1, "size": 1, "y": 1}]'
         self.assertEqual(data, expected_op)
         os.remove("Base.json")
 

@@ -73,8 +73,7 @@ class Base:
             data = fp.read()
         if data is None or fp is None:
             return []
-        else:
-            dlist = Base.from_json_string(data)
+        dlist = Base.from_json_string(data)
         inst_list = []
         for obj_dict in dlist:
             obj = cls.create(**obj_dict)

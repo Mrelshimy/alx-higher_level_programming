@@ -69,6 +69,8 @@ class Base:
     @classmethod
     def load_from_file(cls):
         """Create instances from json file"""
+        if not os.path.isfile("{}.json".format(cls.__name__)):
+            return []
         with open("{}.json".format(cls.__name__), encoding='utf-8') as fp:
             data = fp.read()
         if data is None or fp is None:

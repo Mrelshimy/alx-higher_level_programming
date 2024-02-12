@@ -1,7 +1,7 @@
 #!/usr/bin/node
-let i = 0;
-strings_array = ['C is fun', 'Python is cool', 'JavaScript is amazing'];
-while (strings_array[i]) {
-    console.log(strings_array[i]);
-    i++;
+let i = 0
+const stringArray = ['C is fun', 'Python is cool', 'JavaScript is amazing']
+while (stringArray[i]) {
+  console.log(stringArray[i])
+  i++
 }

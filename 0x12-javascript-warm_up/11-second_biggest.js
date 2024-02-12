@@ -4,5 +4,5 @@ if (process.argv.length < 4) {
 } else {
   process.argv.sort((a, b) => a - b);
   process.argv.reverse();
-  console.log(process.argv);
+  console.log(process.argv[1]);
 }

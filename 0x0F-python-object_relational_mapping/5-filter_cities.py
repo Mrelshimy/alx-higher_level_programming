@@ -15,10 +15,7 @@ if __name__ == "__main__":
                  WHERE `name` LIKE %s)
                  ORDER BY `id` ASC;""", (sys.argv[4],))
     cities = curr.fetchall()
-    for i in range(len(cities)):
-        if i < len(cities) - 1:
-            print("{}, ".format(cities[i][0]), end='')
-        else:
-            print(cities[i][0])
+    citiesNames = [city[0] for city in cities]
+    print(', '.join(citiesNames))
     curr.close()
     db.close()

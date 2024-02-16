@@ -12,7 +12,8 @@ if __name__ == "__main__":
     curr.execute("""SELECT `name` FROM `cities`
                  WHERE `state_id` = (
                  SELECT `id` FROM `states`
-                 WHERE `name` = %s);""", (sys.argv[4],))
+                 WHERE `name` = %s)
+                 ORDER BY `id` ASC;""", (sys.argv[4],))
     cities = curr.fetchall()
     for i in range(len(cities)):
         if i < len(cities) - 1:

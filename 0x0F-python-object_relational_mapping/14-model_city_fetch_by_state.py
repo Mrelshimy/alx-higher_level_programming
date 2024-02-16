@@ -20,6 +20,4 @@ if __name__ == "__main__":
         for city in cities:
             if city.state_id == state.id:
                 print(f"{state.name}: ({city.id}) {city.name}")
-            else:
-                continue
     session.close()

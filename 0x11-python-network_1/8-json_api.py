@@ -9,10 +9,10 @@ if __name__ == "__main__":
         responce = requests.post(sys.argv[1], data={'q', sys.argv[2]})
         resp_json = responce.json()
         try:
-            if not resp_json or resp_json == {}:
-                print("Not a valid JSON")
-            else:
+            if resp_json:
                 print(f'[{resp_json.get("id")}] {resp_json.get("name")}')
+            else:
+                print("No result")
         except ValueError:
             print("Not a valid JSON")
     else:

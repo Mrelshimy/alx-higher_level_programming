@@ -5,8 +5,11 @@ if __name__ == "__main__":
     import requests
     import sys
 
-    if sys.argv[2]:
-        responce = requests.post(sys.argv[1], data={'q', sys.argv[2]})
+    if not sys.argv[2]:
+        attr = ""
+    else:
+        attr = sys.argv[2]
+        responce = requests.post(sys.argv[1], data={'q', attr})
         resp_json = responce.json()
         try:
             if resp_json:
@@ -15,5 +18,3 @@ if __name__ == "__main__":
                 print("No result")
         except ValueError:
             print("Not a valid JSON")
-    else:
-        print("No result")

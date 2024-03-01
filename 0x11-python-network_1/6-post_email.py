@@ -6,5 +6,5 @@ if __name__ == "__main__":
     import requests
 
     param = {'email': sys.argv[2]}
-    responce = requests.post(sys.argv[1], params=param)
+    responce = requests.post(sys.argv[1], data=param)
     print(responce.text)

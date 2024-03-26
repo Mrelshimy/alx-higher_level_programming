@@ -3,7 +3,7 @@
 const request = require('request');
 let count = 0;
 
-request.get('https://swapi-api.alx-tools.com/api/films}', (err, responce, body) => {
+request.get(process.argv[2], (err, responce, body) => {
   if (err) {
     console.log(err);
   } else {

@@ -2,7 +2,7 @@
 
 const request = require('request');
 
-request.get(process.argv[2], 'utf8', (err, response, body) => {
+request.get(process.argv[2], { json: true }, (err, response, body) => {
   if (err) {
     console.log(err);
     return;
